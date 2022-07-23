@@ -33,7 +33,7 @@ resource "aws_security_group" "allow_tls" {
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
-    # The asterisk will do the trick here. These way we iterate over the associations ans return all cidr blocks inside it
+    # The asterisk will do the trick here. This way we iterate over the associations and return all cidr blocks inside them.
     cidr_blocks      = data.aws_vpc.default_vpc.cidr_block_associations[*].cidr_block 
     ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
   }
