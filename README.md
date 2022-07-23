@@ -16,7 +16,7 @@ resource "aws_lb" "alb" {
 
 ### How to retrieve a list of properties from a property inside a list of maps
 
-Lets say we need a list of all cidr blocks inside the VPC to create an ingress rule in a security group. The [`aws_vpc`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc#attributes-reference) data source has the `cidr_block_associations` that is a map list of all cidr blocks associations with the vpc. Inside this map we have the `cidr_block` property.
+Lets say we need a list of all cidr blocks inside the VPC to create an ingress rule in a security group. The [`aws_vpc`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc#attributes-reference) data source has the `cidr_block_associations` that is a map list of all cidr blocks associations within the vpc. Inside this map we have the `cidr_block` property.
 
 ```terraform
 data "aws_vpc" "default_vpc" {
