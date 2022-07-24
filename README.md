@@ -51,3 +51,25 @@ resource "aws_security_group" "allow_tls" {
   }
 }
 ```
+
+### Filter based on partial string
+
+If we need to based on a string but we have only part of it, we can use an asterisk as a placeholder.
+
+```terraform
+data "aws_ami" "latest_ecs_ami" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-ecs-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["amazon"]
+}
+```
